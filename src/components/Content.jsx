@@ -9,7 +9,7 @@ import { debounce } from "lodash";
 const Content = () => {
   const [mode, setMode, search, setSearch] = useContext(ModeContext);
   const [searchParams, setSearchParams] = useSearchParams();
-  console.log(searchParams.get("q"));
+  // console.log(searchParams.get("q"));
   if (searchParams.get("q")) {
     setSearch(searchParams.get("q"));
   }
@@ -20,14 +20,14 @@ const Content = () => {
           <div className="">
             <h3 className=" text-xl">Team Members</h3>
             <p className="text-slate-500 text-sm">
-              Manage your team members and their account permissions here.
+              Manage your team members.
             </p>
           </div>
-          <div className="btn-group w-[150px]">
+          <div className="btn-group w-[100px]">
             <input
               type="text"
               placeholder="Search..."
-              className=" form-control px-5 py-2 outline-none rounded-full"
+              className=" form-control px-5 py-2 outline-none rounded-full bg-base-200"
               // defaultValue={searchParams.get('q')}
               onChange={(e) => {
                 setSearch(e.target.value);

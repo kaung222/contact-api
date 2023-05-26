@@ -7,10 +7,15 @@ import {
   AiOutlineEyeInvisible,
 } from "react-icons/ai";
 import { useRegisterMutation } from "../features/api/AuthApi";
+import swal from "sweetalert";
+import { useDispatch } from "react-redux";
 // import { useRegisterMutation } from "../features/api/AuthApi";
+import { addUser } from "../features/services/AuthSlice";
+import { toast } from "react-toastify";
 
 const Register = () => {
   const navigate = useNavigate();
+  const dispatch = useDispatch();
   const [register] = useRegisterMutation();
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
@@ -21,9 +26,14 @@ const Register = () => {
   const user = { name, email, password, password_confirmation };
   const registerHandler = async (user) => {
     const { data } = await register(user);
+    console.log(data);
     if (data?.success) {
       console.log("register successfully!");
-      navigate("/");
+      dispatch(addUser({ user: data?.user, token: data?.token }));
+
+      // swal("Register successfully");
+      navigate("/login");
+      toast("successfully register");
     }
   };
   return (

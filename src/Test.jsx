@@ -1,46 +1,118 @@
+import {
+  ArcElement,
+  CategoryScale,
+  Chart,
+  LineElement,
+  LinearScale,
+  PointElement,
+} from "chart.js";
 import React from "react";
-import "./App.css";
-import { motion } from "framer-motion";
+import { Doughnut, Line, Pie } from "react-chartjs-2";
 
-const App = () => {
-  const divVariant = {
-    hidden: { opacity: 0 },
-    show: { opacity: 1, transition: { duration: 1 } },
-  };
-  const buttonVariants = {
-    hidden: { x: "-100vw" },
-    show: { x: 0, transition: { duration: 1, delay: 0.5, type: "spring" } },
-  };
+Chart.register(
+  LinearScale,
+  ArcElement,
+  CategoryScale,
+  PointElement,
+  LineElement
+);
+
+const chartData = {
+  // labels: [
+  //   "January",
+  //   "Febaury",
+  //   "March",
+  //   "April",
+  //   "May",
+  //   "June",
+  //   "July",
+  //   "August",
+  //   "September",
+  //   "October",
+  //   "Novenber",
+  //   "December",
+  // ],
+  labels: [
+    
+    "Feb14",
+    "Feb15",
+    "Feb16",
+    "Feb17",
+    "Feb18",
+    "Feb19",
+    "Feb120",
+   
+  ],
+  datasets: [
+    {
+      label: "Sales",
+      data: [4500, 4900, 5000, 4300, 5400, 3300, 6500],
+      // fill: true,
+      borderWidth: 1,
+      // backgroundColor: [
+      //   "green", // Color for January
+      //   "red", // Color for February
+      //   "orange", // Color for March
+      //   "pink", // Color for April
+      //   "purple", // Color for May
+      //   "blue", // Color for June
+      // ],
+      borderColor: "green",
+      tension: 0.1,
+    },
+    {
+      label: "Income",
+      data: [6000, 6900, 7000, 8300, 6600, 9300, 8800],
+
+      // fill: true,
+
+      // backgroundColor: [
+      //   "green", // Color for January
+      //   "red", // Color for February
+      //   "orange", // Color for March
+      //   "pink", // Color for April
+      //   "purple", // Color for May
+      //   "blue", // Color for June
+      // ],
+      borderColor: "blue",
+      tension: 0.1,
+      borderWidth: 1,
+    },
+    {
+      label: "Income",
+      data: [5800, 6200, 3200, 7100, 6900, 5200, 7400],
+
+      // fill: true,
+
+      // backgroundColor: [
+      //   "green", // Color for January
+      //   "red", // Color for February
+      //   "orange", // Color for March
+      //   "pink", // Color for April
+      //   "purple", // Color for May
+      //   "blue", // Color for June
+      // ],
+      borderColor: "red",
+      tension: 0.1,
+      borderWidth: 1,
+    },
+  ],
+};
+
+const chartOptions = {
+  scales: {
+    y: {
+      beginAtZero: false,
+    },
+  },
+};
+
+const Test = () => {
   return (
-    <div
-      className=" flex items-center justify-center h-screen "
-      onClick={(e) => console.log(e.target.value)}
-      value={"dsjflsa"}
-    >
-      {/* <motion.div
-        variants={divVariant}
-        initial="hidden"
-        animate="show"
-        className="bg-red-400 p-20"
-      >
-        <motion.button
-          className=" bg-black px-10 py-2 rounded-full text-white "
-          variants={buttonVariants}
-        >
-          Button
-        </motion.button>
-      </motion.div> */}
-
-      <div
-        className=" w-10 bg-slate-500 h-10"
-        onClick={(e) => console.log(e.target)}
-      ></div>
-      <div
-        className=" w-10 bg-red-500 h-10"
-        onClick={(e) => console.log(e.target)}
-      ></div>
+    <div className=" w-full h-full p-5">
+      <Line data={chartData} options={chartOptions} />
     </div>
   );
 };
 
-export default App;
+export default Test;

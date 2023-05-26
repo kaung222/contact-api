@@ -16,7 +16,7 @@ import { ModeContext } from "../features/ModeContext";
 const Table = () => {
   const [mode, setMode, search] = useContext(ModeContext);
   const token = Cookies.get("token");
-  console.log(search);
+  // console.log(search);
   const [searchParams, setSearchParams] = useSearchParams();
   const [currentPage, setCurrentPage] = useState(
     parseInt(searchParams.get("page")) || 1

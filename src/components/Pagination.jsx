@@ -13,11 +13,17 @@ const Pagination = ({
   const token = Cookies.get("token");
   // const { data } = useGetContactsQuery(token);
   const pages = [];
-  for (let i = 1; i <= totalPages; i++) {
-    pages.push(i);
+  if (totalPages < 10) {
+    for (let i = 1; i <= totalPages; i++) {
+      pages.push(i);
+    }
+  } else {
+    for (let i = 1; i <= 10; i++) {
+      pages.push(i);
+    }
   }
   // const newPage = ["...", totalPages][(pages, newPage)];
-  console.log(totalPages);
+  // console.log(totalPages);
   const isActive = searchParams.get("page");
   // console.log(data);
   return (

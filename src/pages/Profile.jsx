@@ -11,7 +11,7 @@ const Profile = memo(() => {
   const token = Cookies.get("token");
   const [mode, setMode] = useContext(ModeContext);
   const { data } = useGetProfileQuery(token);
-  console.log(data?.user);
+  // console.log(data?.user);
   const account = data?.user;
   const timeStamp = account?.created_at;
   const durationInMs = Date.now() - new Date(timeStamp).getTime();

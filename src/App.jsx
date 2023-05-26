@@ -15,6 +15,7 @@ import ChangePassword from "./pages/ChangePassword";
 import Calling from "./components/Calling";
 import Mailing from "./components/Mailing";
 import Table from "./components/Table";
+import Test from "./Test";
 
 const App = () => {
   return (
@@ -110,6 +111,12 @@ const App = () => {
         />
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
+        <Route path="/setting" element={<Dashboard />} />
+        <Route path="/customer" element={<Dashboard />} />
+        <Route path="/last-projects" element={<Dashboard />} />
+        <Route path="/transition" element={<Dashboard />} />
+        <Route path="/seller" element={<Dashboard />} />
+        <Route path="/test" element={<Test />} />
       </Routes>
     </>
   );

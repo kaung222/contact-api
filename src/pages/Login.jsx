@@ -54,6 +54,7 @@ const Login = () => {
                 <br />
                 <input
                   value={email}
+                  autoFocus
                   onChange={(e) => setEmail(e.target.value)}
                   type="email"
                   placeholder="example@gmail.com"
